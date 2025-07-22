@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { sidebarMenu } from "../../constants/sidebarData";
-
+import { AlignCenter, ChevronDown, ChevronUp, Menu, PanelLeftClose } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const MainSidebar = ({ collapsed, setCollapsed, setActiveSubMenu }) => {
   const [expandedMenu, setExpandedMenu] = useState(null);
-
+const navigate = useNavigate();
   const handleExpand = (item) => {
     if (expandedMenu === item.label) {
       setExpandedMenu(null);
@@ -12,46 +13,93 @@ const MainSidebar = ({ collapsed, setCollapsed, setActiveSubMenu }) => {
       setExpandedMenu(item.label);
     }
   };
+   const handleSubMenuClick = (subPath) => {
+    setCollapsed(true);
+    setActiveSubMenu(subPath);
+    // Don't navigate here - let the SubSidebar handle navigation
+  };
 
   return (
     <aside
-      className={`bg-white h-full transition-all duration-300 shadow-md ${
+      className={`bg-white h-full shadow-lg  transition-all duration-300 ${
         collapsed ? "w-16" : "w-64"
       }`}
     >
-      <nav className="p-2 space-y-1">
+      <nav className="p-2 space-y-1"> 
+        <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-center gap-2">
+              <img src="image.png" alt=""  className={`${collapsed?"":"h-10 w-10"}`}/>
+              {collapsed ? null : <span className="text-xl text-blue-500 font-medium">RORIRI</span>}
+              
+            </div>
+            <button onClick={() => setCollapsed(!collapsed)}>
+  {collapsed ? (
+    <Menu className="text-blue-500 cursor-pointer relative hidden" />
+  ) : (
+    <Menu className="text-blue-500  cursor-pointer" />
+  )}
+</button>
+            
+          </div>
         {sidebarMenu.map((item) => {
           const isExpanded = expandedMenu === item.label;
 
           return (
-            <div key={item.label}>
+          <> 
+         
+          <div key={item.label}>
               <button
-                onClick={() =>
-                  item.submenu ? handleExpand(item) : null
-                }
-                className="w-full text-left px-2 py-2 hover:bg-gray-100 rounded"
-              >
-                {collapsed ? item.icon : item.label}
-              </button>
+  onClick={() => {
+    if (item.submenu) {
+      handleExpand(item);
+    } else {
+      navigate(`/${item.path}`); 
+    }
+  }}
+  className="w-full flex items-center gap-2 px-3 py-2 text-left text-gray-500 rounded-md hover:bg-blue-50 hover:text-blue-600 transition-colors"
+>
+  <item.icon className="w-5 h-5" />
+  {!collapsed && (
+    <>
+      <span>{item.label}</span>
+      {item.submenu && (
+        <span
+          className={`ml-auto transition-transform duration-300 ${
+            isExpanded ? "rotate-180" : ""
+          }`}
+        >
+          <ChevronDown size={18} />
+        </span>
+      )}
+    </>
+  )}
+</button>
 
-              {!collapsed && isExpanded && item.submenu && (
-                <ul className="ml-4 mt-1 space-y-1">
-                  {item.submenu.map((sub) => (
-                    <li key={sub.label}>
-                      <button
-                        onClick={() => {
-                          setCollapsed(true);
-                          setActiveSubMenu(sub.path); 
-                        }}
-                        className="w-full text-left px-2 py-1 hover:bg-gray-200 rounded"
-                      >
-                        {sub.label}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
+
+              {!collapsed && item.submenu && (
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <ul className="ml-6 mt-1 space-y-1">
+                    {item.submenu.map((sub) => (
+                      <li key={sub.label}>
+                         <button
+                          onClick={() => handleSubMenuClick(sub.path)}
+                          className="w-full flex items-center gap-2 px-3 py-1.5 rounded-md text-sm text-gray-600 hover:bg-blue-100 hover:text-blue-600 transition-colors duration-200"
+                        >
+                          {sub.icon && <sub.icon className="w-4 h-4" />}
+                          <span>{sub.label}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </div>
+          </>
+           
           );
         })}
       </nav>

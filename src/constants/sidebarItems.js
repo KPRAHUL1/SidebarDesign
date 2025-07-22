@@ -1,6 +1,4 @@
-import { 
-  Menu, 
-  X, 
+import {  
   Home, 
   Users, 
   Globe, 
@@ -10,11 +8,6 @@ import {
   Database, 
   Share2, 
   TrendingUp,
-  ChevronDown,
-  ChevronRight,
-  ChevronLeft,
-  MessageSquare,
-  UserCheck,
   CheckCircle,
   UserPlus,
   FolderOpen,
@@ -22,30 +15,29 @@ import {
   Star,
   FileText as FileIcon,
   Calendar,
-  Sun,
-  Moon,
-  Grid3X3,
-  User
+  HomeIcon,
+  MessageSquareCode,
+  UserCheck2,
 } from 'lucide-react';
 
 const roririSoftwareData = [
   {
     id: 'dashboard',
     title: 'Dashboard',
-    icon: Home,
+    icon: HomeIcon,
     path: '/roriri-software/dashboard'
   },
   {
     id: 'enquiry-details',
     title: 'Enquiry Details',
-    icon: MessageSquare,
+    icon: MessageSquareCode,
     path: '/roriri-software/enquiry-details',
     hasSubmenu: true
   },
   {
     id: 'employee',
     title: 'Employee',
-    icon: UserCheck,
+    icon: UserCheck2,
     path: '/roriri-software/employee'
   },
   {
@@ -95,7 +87,7 @@ const roririSoftwareData = [
   {
     id: 'meeting-details',
     title: 'Meeting Details',
-    icon: Calendar,
+    icon:` ${<Calendar/>}`,
     path: '/roriri-software/meeting-details',
     hasSubmenu: true
   }
