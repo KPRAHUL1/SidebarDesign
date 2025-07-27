@@ -18,11 +18,11 @@ const SubSidebar = ({ activeSubMenu, onClose }) => {
         {active?.submenu?.map((sub) => (
           <Link
             key={sub.label}
-            to={`/entity/${activeSubMenu}/${sub.path}`} // This should correctly form the path
+            to={`/entity/${activeSubMenu}/${sub.path}`}
             className="block px-2 py-1 hover:bg-gray-100 rounded"
             onClick={() => {
-              // Optional: Close the subsidebar when navigating
-              // onClose();
+              // Close the subsidebar when navigating
+              onClose();
             }}
           >
             <span className="flex gap-3 items-center hover:text-blue-500">
