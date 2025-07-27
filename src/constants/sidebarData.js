@@ -4,7 +4,7 @@ export const sidebarMenu = [
   {
     label: "Dashboard",
     icon: HomeIcon,
-    path: "/",
+    path: "",  // Changed from "/" to "" for nested routing
   },
   {
     label: "Entity",
@@ -16,57 +16,17 @@ export const sidebarMenu = [
         path: "roriri-software",
         icon: Home,
         submenu: [
-          { label: "Dashboard", path: "dashboard" ,icon: Home,},
-          { label: "Enquiry Details", path: "enquiry-details",icon: MessageSquare, },
-          { label: "Employee", path: "employee",icon: UserCheck, },
-          {
-    id: 'attendance',
-    label: 'Attendance',
-    icon: CheckCircle,
-    path: 'attendance'
-  },
-  {
-    id: 'clients',
-    label: 'Clients',
-    icon: UserPlus,
-    path: 'clients'
-  },
-  {
-    id: 'project-details',
-    label: 'Project Details',
-    icon: FolderOpen,
-    path: 'project-details',
-  },
-  {
-    id: 'coordinator',
-    label: 'Coordinator',
-    icon: Settings,
-    path: 'coordinator'
-  },
-  {
-    id: 'internship',
-    label: 'Internship',
-    icon: Star,
-    path: 'internship'
-  },
-  {
-    id: 'mou',
-    label: 'MOU',
-    icon: FileIcon,
-    path: 'mou'
-  },
-  {
-    id: 'task-details',
-    label: 'Task Details',
-    icon: CheckCircle,
-    path: 'task-details',
-  },
-  {
-    id: 'meeting-details',
-    label: 'Meeting Details',
-    icon: Calendar,
-    path: 'meeting-details',
-  }
+          { label: "Dashboard", path: "dashboard", icon: Home },
+          { label: "Enquiry Details", path: "enquiry-details", icon: MessageSquare },
+          { label: "Employee", path: "employee", icon: UserCheck },
+          { label: 'Attendance', path: 'attendance', icon: CheckCircle },
+          { label: 'Clients', path: 'clients', icon: UserPlus },
+          { label: 'Project Details', path: 'project-details', icon: FolderOpen },
+          { label: 'Coordinator', path: 'coordinator', icon: Settings },
+          { label: 'Internship', path: 'internship', icon: Star },
+          { label: 'MOU', path: 'mou', icon: FileIcon },
+          { label: 'Task Details', path: 'task-details', icon: CheckCircle },
+          { label: 'Meeting Details', path: 'meeting-details', icon: Calendar }
         ],
       },
       {
@@ -74,79 +34,105 @@ export const sidebarMenu = [
         path: "nexgenit-academy",
         icon: GraduationCap,
         submenu: [
-          { label: "Courses", path: "courses" },
+          { label: "Courses", path: "courses", icon: GraduationCap },
         ],
       },
-       {
-         id: 'nexgen-college',
-         label: 'NexGen IT College',
-          path: 'nexgen-college', 
-          icon: Building2,
-        },
-        { 
-          id: 'nexemy',
-           label: 'Nexemy',
-            path: 'nexemy',
-            icon: Users 
-          },
-          { 
-            id: 'riya-ias',
-             label: 'Riya IAS Academy',
-              path: 'riya-ias',
-              icon: Brain
-            },
-             { id: 'riya-neet', label: 'Riya NEET Academy', path: 'riya-neet', icon: Globe },
-      { id: 'riya-consultancy', label: 'Riya Consultancy', path: 'riya-consultancy', icon: HeartHandshake },
-      { id: 'rithish-farms', label: 'Rithish Farms', path: 'rithish-farms', icon: Leaf },
-      { id: 'roriri-foundation', label: 'Roriri Foundation', path: 'roriri-foundation', icon: HeartHandshake }
+      {
+        label: 'NexGen IT College',
+        path: 'nexgen-college',
+        icon: Building2,
+        submenu: [
+          { label: "Dashboard", path: "dashboard", icon: Home },
+        ]
+      },
+      {
+        label: 'Nexemy',
+        path: 'nexemy',
+        icon: Users,
+        submenu: [
+          { label: "Dashboard", path: "dashboard", icon: Home },
+        ]
+      },
+      {
+        label: 'Riya IAS Academy',
+        path: 'riya-ias',
+        icon: Brain,
+        submenu: [
+          { label: "Dashboard", path: "dashboard", icon: Home },
+        ]
+      },
+      {
+        label: 'Riya NEET Academy',
+        path: 'riya-neet',
+        icon: Globe,
+        submenu: [
+          { label: "Dashboard", path: "dashboard", icon: Home },
+        ]
+      },
+      {
+        label: 'Riya Consultancy',
+        path: 'riya-consultancy',
+        icon: HeartHandshake,
+        submenu: [
+          { label: "Dashboard", path: "dashboard", icon: Home },
+        ]
+      },
+      {
+        label: 'Rithish Farms',
+        path: 'rithish-farms',
+        icon: Leaf,
+        submenu: [
+          { label: "Dashboard", path: "dashboard", icon: Home },
+        ]
+      },
+      {
+        label: 'Roriri Foundation',
+        path: 'roriri-foundation',
+        icon: HeartHandshake,
+        submenu: [
+          { label: "Dashboard", path: "dashboard", icon: Home },
+        ]
+      }
     ],
   },
   {
-    id: 'omain',
     label: 'Domain',
     icon: Globe,
-    path: '/domain',
+    path: 'domain',
   },
   {
-    id: 'official-menu',
     label: 'Official Menu',
     icon: FileText,
-    path: '/official-menu',
+    path: 'official-menu',
   },
   {
-    id: 'asset',
     label: 'Asset',
-    icon:   Building2,
-    path: '/asset'
+    icon: Building2,
+    path: 'asset'
   },
   {
-    id: 'industrial-visit',
     label: 'Industrial Visit',
     icon: Building2,
-    path: '/industrial-visit'
+    path: 'industrial-visit'
   },
   {
-    id: 'expense',
     label: 'Expense',
     icon: DollarSign,
-    path: '/expense'
+    path: 'expense'
   },
   {
-    id: 'database-report',
     label: 'Database Report',
     icon: Database,
-    path: '/database-report'
+    path: 'database-report'
   },
   {
-    id: 'social-media',
     label: 'Social Media',
     icon: Share2,
-    path: '/social-media'
+    path: 'social-media'
   },
   {
-    id: 'web-tracking',
     label: 'Web Tracking',
     icon: TrendingUp,
-    path: '/web-tracking'
+    path: 'web-tracking'
   }
 ];
