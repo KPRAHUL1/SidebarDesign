@@ -34,7 +34,7 @@ function App() {
           
           {/* Roriri Software Routes */}
           <Route path="entity/roriri-software/dashboard" element={<RoririDashboard />} />
-          <Route path="entity/roriri-software/enquiry-details" element={<EnquiryDetails />} />
+          <Route path="entity/roriri-software/enquiry-details/project-enquiry" element={<EnquiryDetails />} />
           <Route path="entity/roriri-software/employee" element={<Employee />} />
           <Route path="entity/roriri-software/attendance" element={<Attendance />} />
           {/* <Route path="entity/roriri-software/clients" element={<Clients />} />
