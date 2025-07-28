@@ -1,4 +1,4 @@
-import { Brain, Building2, Calendar, CheckCircle, Database, DollarSign, FileIcon, FileText, FolderOpen, Globe, GraduationCap, HeartHandshake, Home, HomeIcon, Leaf, MessageSquare, Settings, Share2, Star, TrendingUp, UserCheck, UserPlus, Users } from "lucide-react";
+import { Brain, Building2, Calendar, CheckCircle, Database, DollarSign, FileIcon, FileText, FolderOpen, Globe, GraduationCap, HeartHandshake, Home, HomeIcon, Leaf, MessageCircleCode, MessageSquare, Settings, Share2, Star, TrendingUp, UserCheck, UserPlus, Users } from "lucide-react";
 
 export const sidebarMenu = [
   {
@@ -17,7 +17,21 @@ export const sidebarMenu = [
         icon: Home,
         submenu: [
           { label: "Dashboard", path: "dashboard", icon: Home },
-          { label: "Enquiry Details", path: "enquiry-details", icon: MessageSquare },
+          { label: "Enquiry Details", path: "enquiry-details", icon: MessageSquare,
+            submenu: [
+            {  
+              icon: MessageSquare,
+              label:'Project Enquiry',
+              path: 'project-enquiry'
+            },
+              {  
+                icon: MessageCircleCode,
+              label:'All Enquiry',
+              path: 'all-enquiry'
+            }
+            ]
+
+          },
           { label: "Employee", path: "employee", icon: UserCheck },
           { label: 'Attendance', path: 'attendance', icon: CheckCircle },
           { label: 'Clients', path: 'clients', icon: UserPlus },
