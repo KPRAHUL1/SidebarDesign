@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Menu, X, Bell, Search, User, ChevronRight } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { sidebarMenu } from '../../constants/sidebarData';
 
-const Navbar = ({ toggleSidebar }) => {
-  const [isToggled, setIsToggled] = useState(false);
+const Navbar = () => {
+  // const [isToggled, setIsToggled] = useState(false);
   const location = useLocation();
 
-  const handleToggle = () => {
-    setIsToggled(!isToggled);
-    toggleSidebar(); // Call the parent's toggle function
-  };
+  // const handleToggle = () => {
+  //   setIsToggled(!isToggled);
+  //   toggleSidebar(); // Call the parent's toggle function
+  // };
 
   const getBreadcrumb = () => {
     const currentPath = location.pathname;
@@ -68,7 +68,7 @@ const Navbar = ({ toggleSidebar }) => {
     <header className="bg-white shadow-sm border-b border-gray-200 px-4 py-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <button
+          {/* <button
             onClick={handleToggle}
             className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-all duration-200"
           >
@@ -77,7 +77,7 @@ const Navbar = ({ toggleSidebar }) => {
             ) : (
               <Menu className="h-5 w-5 transform transition-transform duration-200" />
             )}
-          </button>
+          </button> */}
           
           <div className="hidden md:block">
             <nav className="flex items-center space-x-2 text-sm">
